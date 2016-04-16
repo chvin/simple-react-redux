@@ -1,0 +1,21 @@
+{
+  "presets":["react","es2015"],
+  "env":{//下面的配置都是为了热更新
+    "development":{
+      "plugins":[
+        [
+          "react-transform",
+          {
+            "transforms":[
+              {
+                "transform":"react-transform-hmr",
+                "imports":["react"],
+                "locals":["module"]
+              }
+            ]
+          }
+        ]
+      ]
+    }
+  }
+}
