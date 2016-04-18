@@ -16,11 +16,13 @@ class App extends Component{
                 todos:[
                     {
                         complete:true,
-                        label:'hehe'
+                        label:'hehe',
+                        time:1460993893211
                     },
                     {
                         complete:false,
-                        label:'xixi'
+                        label:'xixi',
+                        time:1460974893211
                     }
                 ]
             },
@@ -35,6 +37,26 @@ class App extends Component{
         });
     }
 
+    addTask(e){
+        if(e.keyCode!==13){
+            return;
+        }
+        var name = e.target.value.trim();
+        if(name.length === 0){
+            return;
+        }
+        var todos = this.state.todos.slice(0);
+        todos.push({
+            complete:false,
+            label:name,
+            time:Date.now()
+        });
+        this.setState({
+            todos:todos,
+            newTaskName:''
+        });
+    }
+
     componentDidUpdate(){
         localStorage.setItem('todos',JSON.stringify(this.state));
     }
@@ -43,23 +65,47 @@ class App extends Component{
         localStorage.setItem('todos',JSON.stringify(this.state));
     }
 
+    switch_visible(e){
+        this.setState({
+            visible:e.target.innerHTML
+        });
+    }
+
+    toggle(e){
+        console.log('toggle',e);
+    }
+
     render(){
+        var _this = this;
+
         return (
+
             <div id="app">
                 <h1>TODOS</h1>
-                <input type="text" value={this.state.newTaskName} onChange={e=>this.inputTaskName(e)} />
+                <input type="text" value={this.state.newTaskName} onKeyDown={e=>this.addTask(e)} onChange={e=>this.inputTaskName(e)} />
                 <ul>
                     {
-                        this.state.todos.map(function(item,key){
-                            return <Li complete={item.complete} key={key} label={item.label} />
+
+                        this.state.todos.map(function(item){
+                            if(_this.state.visible === 'show all'){
+                                return <Li onClick={e=>this.toggle(e)} key={item.time} complete={item.complete} label={item.label} />
+                            }
+
+                            if(_this.state.visible === 'show done' && item.complete) {
+                                return <Li onClick={e=>this.toggle(e)} key={item.time} complete={item.complete} label={item.label} />
+                            }
+
+                            if(_this.state.visible === 'show undone' && !item.complete) {
+                                return <Li onClick={e=>this.toggle(e)} key={item.time} complete={item.complete} label={item.label} />
+                            }
                         })
                     }
                 </ul>
                 <hr/>
                 <p>
-                    <a href="javascript:;" className="active">show all</a>
-                    <a href="javascript:;">show done</a>
-                    <a href="javascript:;">show undone</a>
+                    <a href="javascript:;" className={this.state.visible === 'show all'?'active':''} onClick={e=>this.switch_visible(e)}>show all</a>
+                    <a href="javascript:;" className={this.state.visible === 'show done'?'active':''} onClick={e=>this.switch_visible(e)}>show done</a>
+                    <a href="javascript:;" className={this.state.visible === 'show undone'?'active':''} onClick={e=>this.switch_visible(e)}>show undone</a>
                 </p>
             </div>
         )
