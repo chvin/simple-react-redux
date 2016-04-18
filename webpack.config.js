@@ -21,7 +21,8 @@ module.exports = {
           },
           {
               test:/\.css$/,//css loader
-              loader:'style!css?modules!postcss'
+              loader:'style!css?!postcss'
+              // loader:'style!css?modules!postcss'//css模块化
           },
       ]
     },
