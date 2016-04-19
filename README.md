@@ -4,5 +4,8 @@
 ```npm install```
 ### 开发环境:
 ```npm start```
+
+去 http://localhost:8080/
+
 ### 生成环境
-```npm build```
+```npm run build```
