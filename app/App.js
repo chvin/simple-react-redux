@@ -45,14 +45,15 @@ class App extends Component{
         if(name.length === 0){
             return;
         }
-        var todos = this.state.todos.slice(0);
-        todos.push({
-            complete:false,
-            label:name,
-            time:Date.now()
-        });
         this.setState({
-            todos:todos,
+            todos:[
+                ...this.state.todos,
+                {
+                    complete:false,
+                    label:name,
+                    time:Date.now()
+                }
+            ],
             newTaskName:''
         });
     }
