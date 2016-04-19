@@ -31,6 +31,7 @@ input[type=text]{
     padding:.5em;
     box-sizing:border-box;
     border:1px;
+    margin:0 auto 1em;
 }
 a{
     margin:0 2em;
@@ -51,14 +52,22 @@ h1{
 ul{
     width:50%;
     display:block;
-    margin:1em auto 2em;
+    margin:1em auto 1em;
 }
 li{
     border-bottom:1px solid #333;
     position:relative;
     text-align:left;
-    padding:1em 0 1em 2em;
+    padding:1em 0 1em 5.2em;
     cursor:pointer;
+    word-break:break-all;
+}
+
+li .status{
+    position:absolute;
+    top:50%;
+    left:0;
+    transform:translate(0,-50%);
 }
 
 input[type=text]:focus,li:hover,a.active{
@@ -70,13 +79,27 @@ input[type=text]:focus,li:hover,a.active{
 li input[type=checkbox]{
     position:absolute;
     top:50%;
-    left:0;
-    transform:translate(0,-50%);
+    left:54px;
+    transform:translate(0,-65%);
     display:inline-block;
     font-size:30px;
 }
 li.done{
     text-decoration: line-through;
+}
+
+li .delete{
+    position:absolute;
+    right:10px;
+    top:50%;
+    line-height:20px;
+    transform:translate(0,-50%);
+    display:none;
+    transition: all 0s;
+}
+
+li:hover .delete{
+    display:block;
 }
 
 li:last-child{
