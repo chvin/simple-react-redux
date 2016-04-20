@@ -2,18 +2,14 @@ var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');//自动修补css浏览器前缀
 module.exports = {
     devtool: 'eval-source-map',//生成source map以追踪js错误
-    entry:  __dirname + "/app/main.js",//js入口
+    entry:  __dirname + "/index.js",//js入口
     output: {
-        path: __dirname + "/public",//输出路径
+        path: __dirname + "/server",//输出路径
         filename: "bundle.js"//输出名
     },
 
     module:{
       loaders:[
-          {
-              test:/\.json$/,//json loader
-              loader:'json'
-          },
           {
               test:/\.js$/,//js loader
               exclude:/node_modules/,
@@ -28,7 +24,7 @@ module.exports = {
     },
 
     devServer: {//webpack-dev-server 配置
-        contentBase: "./public",
+        contentBase: "./server",
         colors: true,
         historyApiFallback: true,
         inline: true,
