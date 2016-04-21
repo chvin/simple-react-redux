@@ -1,11 +1,21 @@
-# Webpack-React-Babel-scaffold
-使用Webpack、Babel搭建React开发环境的脚手架，并且有ES6、热更新、postcss、hash命名、UglifyJs等dev和production功能。
-###使用
+# Todos_React_Redux_Webpack_Babel
+使用React、Redux、Webpack、Babel（ES6）搭建的TODOS（任务列表）的项目示例（脚手架），Webpack按development和production环境配置好了有关热更新、postcss、hash命名（缓存方案）、UglifyJs的有关config。
+
+### INSTALL
 ```npm install```
-### 开发环境:
+### DEVELOPMENT:
 ```npm start```
 
-去 http://localhost:8080/
+``` open http://localhost:8080/ ```
 
-### 生成环境
+### PRODUCTION
 ```npm run build```
+
+###参考
+* React：<http://reactjs.cn/react/docs/getting-started.html>
+
+* Redux：<https://camsong.github.io/redux-in-chinese/index.html>
+
+* ES6 for React：<http://egorsmirnov.me/2015/05/22/react-and-es6-part1.html>
+
+* Webpack for React：<http://www.pro-react.com/materials/appendixA/>
