@@ -1,9 +1,9 @@
 import React from 'react';
 import action from '../actions';
 import {connect} from 'react-redux';
-
+let input;
 let Input = ({newTaskName,dispatch}) => {
-    let input;
+
     let addTodos = (e) =>{
         let name = input.value.trim();
         if(name.length === 0 || e.keyCode !== 13){

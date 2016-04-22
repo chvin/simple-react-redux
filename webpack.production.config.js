@@ -33,6 +33,7 @@ module.exports = {
         }),
         new webpack.optimize.UglifyJsPlugin(),
         new ExtractTextPlugin("[name]-[hash].css"),
+        new webpack.optimize.DedupePlugin(),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV':'"production"'
         })

@@ -1,11 +1,5 @@
 html {
-    box-sizing: border-box;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-    text-align:center;
-    background-color:#dcdcb7;
-    font-size:16px;
-    font-family: Arial;
+
 }
 
 *, *:before, *:after {
@@ -16,14 +10,25 @@ html {
 
 body {
     margin: 0;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color:#dcdcb7;
 }
 
 h1, h2, h3, h4, h5, h6, p, ul {
     margin: 0;
     padding: 0;
 }
-input[type=text]{
+
+#app{
+    box-sizing: border-box;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    text-align:center;
+    font-size:16px;
+    font-family: Arial;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+#app input[type=text]{
     width:50%;
     display:inline-block;
     font-size:18px;
@@ -33,7 +38,7 @@ input[type=text]{
     border:1px;
     margin:0 auto 1em;
 }
-a{
+#app a{
     margin:0 2em;
     display:inline-block;
     border:1px solid #999;
@@ -44,17 +49,17 @@ a{
 }
 
 
-h1{
+#app h1{
     color:#2f6fad;
     margin:.5em 0;
 }
 
-ul{
+#app ul{
     width:50%;
     display:block;
     margin:1em auto 1em;
 }
-li{
+#app li{
     border-bottom:1px solid #333;
     position:relative;
     text-align:left;
@@ -63,20 +68,20 @@ li{
     word-break:break-all;
 }
 
-li .status{
+#app li .status{
     position:absolute;
     top:50%;
     left:0;
     transform:translate(0,-50%);
 }
 
-input[type=text]:focus,li:hover,a.active{
+#app input[type=text]:focus,#app li:hover,#app a.active{
     background:#2f6fad;
     color:#fff;
     border-color:#2f6fad;
 }
 
-li input[type=checkbox]{
+#app li input[type=checkbox]{
     position:absolute;
     top:50%;
     left:54px;
@@ -84,11 +89,11 @@ li input[type=checkbox]{
     display:inline-block;
     font-size:30px;
 }
-li.done{
+#app li.done{
     text-decoration: line-through;
 }
 
-li .delete{
+#app li .delete{
     position:absolute;
     right:10px;
     top:50%;
@@ -98,10 +103,10 @@ li .delete{
     transition: all 0s;
 }
 
-li:hover .delete{
+#app li:hover .delete{
     display:block;
 }
 
-li:last-child{
+#app li:last-child{
     border-bottom:none;
 }
